@@ -4,15 +4,43 @@ public class PalindromePermutation {
 
     public static void main(String [] args){
 
+       System.out.println(isWordAPermutationOfPalindrome("tacT ctta"));
+       System.out.println(isWordAPermutationOfPalindrome("trerelt jjkLk ooo"));
+       System.out.println(isWordAPermutationOfPalindrome("tRerelt kkk"));
+
     }
 
     public static boolean isWordAPermutationOfPalindrome(String word){
 
+         word = word.toLowerCase();
         HashMap<Integer,Integer> evensAndOddsCount = new HashMap<>(numberOfEvenAndOddCharacters(word));
         int oddKey = 1;
         int evenKey = 0;
 
+        if(evensAndOddsCount.containsKey(evenKey) && !evensAndOddsCount.containsKey(oddKey)){
 
+            return true;
+        }else if(evensAndOddsCount.containsKey(evenKey) && evensAndOddsCount.containsKey(oddKey)){
+
+            if(evensAndOddsCount.get(oddKey) == 1){
+
+                return true;
+            }else{
+
+                return false;
+            }
+        }else if(evensAndOddsCount.containsKey(oddKey) && !evensAndOddsCount.containsKey(evenKey)){
+
+            if(evensAndOddsCount.get(oddKey) == 1){
+
+                return true;
+            }else{
+
+                return false;
+            }
+        }
+
+        return false;
     }
 
     public static HashMap<Integer, Integer> numberOfEvenAndOddCharacters(String word){
@@ -33,7 +61,7 @@ public class PalindromePermutation {
 
                     if(evensAndOddsCount.containsKey(evenKey)){
 
-                        evensAndOddsCount.put(evenKey,letterCount.get(evenKey) + 1);
+                        evensAndOddsCount.put(evenKey,evensAndOddsCount.get(evenKey) + 1);
                     }else{
 
                         evensAndOddsCount.put(evenKey,1);
