@@ -12,11 +12,8 @@ public class GraphVertex {
         this.value = i;
     }
 
-    public void addChildren(ArrayList<GraphVertex> neighbors){
+    public void addChild(GraphVertex neighbor){
 
-        for(GraphVertex v: neighbors){
-
-            this.adjacentVertices.add(v);
-        }
+        adjacentVertices.add(neighbor);
     }
 }
