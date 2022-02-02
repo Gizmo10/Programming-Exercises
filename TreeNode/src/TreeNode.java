@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -56,5 +57,23 @@ public class TreeNode {
         System.out.print(root.value);
         preorderTraversal(root.leftChild);
         preorderTraversal(root.rightChild);
+    }
+
+    public static ArrayList<ArrayList<Integer>> listOfDepths(TreeNode root){
+
+        ArrayList<ArrayList<Integer>> depths = new ArrayList<>();
+        ArrayList<Integer> depth = new ArrayList<>();
+
+        if(root != null) {
+
+            depth.add(root.value);
+
+            listOfDepths(root.leftChild);
+            listOfDepths(root.rightChild);
+        }
+
+        depths.add(depth);
+        System.out.println(depths);
+        return depths;
     }
 }
