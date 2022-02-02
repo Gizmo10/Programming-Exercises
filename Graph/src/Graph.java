@@ -6,6 +6,8 @@ public class Graph {
 
     public ArrayList<GraphVertex> vertices = new ArrayList<>();
 
+    public Graph(){}
+
     public void buildGraph(ArrayList<GraphVertex> nodes){
 
         for(GraphVertex v: nodes){
