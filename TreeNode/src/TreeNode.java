@@ -44,8 +44,17 @@ public class TreeNode {
                 tempBuffer.add(rightNode);
             }
         }
+    }
 
+    public static void preorderTraversal(TreeNode root){
 
+        if(root == null){
 
+            return;
+        }
+
+        System.out.print(root.value);
+        preorderTraversal(root.leftChild);
+        preorderTraversal(root.rightChild);
     }
 }
