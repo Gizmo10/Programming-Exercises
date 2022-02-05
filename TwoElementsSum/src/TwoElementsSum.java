@@ -21,6 +21,7 @@ public class TwoElementsSum {
 
                 result[0] = elements[j];
                 result[1] = pairsAddingToSum.get(elements[j]);
+                j = elements.length;
             }
         }
 
